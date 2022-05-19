@@ -1,5 +1,5 @@
-CA65="../../cc65/bin/ca65"
-LD65="../../cc65/bin/ld65"
+CA65="../../../tools/cc65/bin/ca65"
+LD65="../../../tools/cc65/bin/ld65"
 
 CAOPTS=-g
 LDOPTS=
@@ -8,8 +8,8 @@ LDOPTS=
 
 all: hello.nes
 
-hello.nes: hello.o ppu.o joy.o ../inc/nrom.cfg 
-	${LD65} ${LDOPTS} -o hello.nes -C ../inc/nrom.cfg -m hello.map.txt \
+hello.nes: hello.o ppu.o joy.o nrom.cfg 
+	${LD65} ${LDOPTS} -o hello.nes -C nrom.cfg -m hello.map.txt \
 		-Ln hello.labels.txt --dbgfile hello.nes.dbg \
 		hello.o ppu.o joy.o
 
